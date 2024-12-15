@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Habit_Forge</string>
+    <string-array name="spinner_options">
+        <item>EQUAL</item>
+        <item>LESS</item>
+        <item>MORE</item>
+    </string-array>
+</resources>

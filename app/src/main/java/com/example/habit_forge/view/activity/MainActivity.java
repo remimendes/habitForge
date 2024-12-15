@@ -2,6 +2,7 @@ package com.example.habit_forge.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -41,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onButtonClick(int habitId) {
                 viewModel.onNavigateToEditCreationActivity(habitId);
+            }
+        }, new ListHabitAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int habitId) {
+                viewModel.onNavigateToHabitInteractionActivity(habitId);
             }
         });
         recyclerView.setAdapter(adapter);

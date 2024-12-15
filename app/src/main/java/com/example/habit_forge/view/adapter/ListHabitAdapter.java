@@ -17,15 +17,21 @@ import java.util.List;
 public class ListHabitAdapter extends RecyclerView.Adapter<ListHabitAdapter.ViewHolder> {
 
     private final List<HabitEntity> habitList;
-    private OnButtonClickListener buttonClickListener;
+    private final OnButtonClickListener buttonClickListener;
+    private final OnItemClickListener itemClickListener;
 
     public interface OnButtonClickListener {
         void onButtonClick(int habitId);
     }
 
-    public ListHabitAdapter(List<HabitEntity> itemList, OnButtonClickListener listener) {
+    public interface OnItemClickListener {
+        void onItemClick(int habitId);
+    }
+
+    public ListHabitAdapter(List<HabitEntity> itemList, OnButtonClickListener listener, OnItemClickListener itemClickListener) {
         this.habitList = itemList;
         this.buttonClickListener = listener;
+        this.itemClickListener = itemClickListener;
     }
 
     @NonNull
@@ -43,6 +49,12 @@ public class ListHabitAdapter extends RecyclerView.Adapter<ListHabitAdapter.View
         holder.button.setOnClickListener(v -> {
             if (buttonClickListener != null) {
                 buttonClickListener.onButtonClick(currentItem.getId());
+            }
+        });
+
+        holder.itemView.setOnClickListener(v -> {
+            if (itemClickListener != null) {
+                itemClickListener.onItemClick(currentItem.getId());
             }
         });
     }

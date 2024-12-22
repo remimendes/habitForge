@@ -44,4 +44,7 @@ public class MainPageViewModel extends AndroidViewModel {
         navigationEvent.setValue(new NavigationEvent(NavigationEvent.EventType.Interaction, habitId));
     }
 
+    public void onNavigateToHabitInfosActivity() {
+        navigationEvent.setValue(new NavigationEvent(NavigationEvent.EventType.Infos, -1));
+    }
 }

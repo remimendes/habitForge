@@ -19,6 +19,6 @@ public class NavigationEvent {
     }
 
     public enum EventType {
-        Creation,Edit, Interaction
+        Creation,Edit, Interaction, Infos
     }
 }

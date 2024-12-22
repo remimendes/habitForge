@@ -8,6 +8,8 @@ import androidx.room.PrimaryKey;
 
 import com.example.habit_forge.model.Objective;
 
+import java.time.LocalDateTime;
+
 @Entity(
         tableName = "habits_table",
         indices = {@Index(value = "name", unique = true)} // Index unique sur "name"
@@ -25,10 +27,13 @@ public class HabitEntity {
     @Embedded
     private Objective objective;
 
-    public HabitEntity(@NonNull String name, String description, Objective objective) {
+    private LocalDateTime creationDate;
+
+    public HabitEntity(@NonNull String name, String description, Objective objective, LocalDateTime creationDate) {
         this.name = name;
         this.description = description;
         this.objective = objective;
+        this.creationDate = creationDate;
     }
 
     // Getters and Setters
@@ -63,5 +68,9 @@ public class HabitEntity {
 
     public void setObjective(Objective objective) {
         this.objective = objective;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
     }
 }

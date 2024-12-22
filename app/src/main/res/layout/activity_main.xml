@@ -24,7 +24,7 @@
                 android:text="add habit" />
 
             <Button
-                android:id="@+id/test_interact_button"
+                android:id="@+id/habits_infos_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="testInteract" />

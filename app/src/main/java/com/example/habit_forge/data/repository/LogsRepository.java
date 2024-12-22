@@ -2,6 +2,8 @@ package com.example.habit_forge.data.repository;
 
 import android.app.Application;
 
+import androidx.lifecycle.LiveData;
+
 import com.example.habit_forge.data.dao.LogDAO;
 import com.example.habit_forge.data.db.HabitForgeRoomDatabase;
 import com.example.habit_forge.model.LogEntity;
@@ -18,5 +20,13 @@ public class LogsRepository {
 
     public void insertLog(LogEntity log) {
         logDAO.insertLog(log);
+    }
+
+    public List<LogEntity> getLogsForHabit(int habitId) {
+        return logDAO.getLogsForHabit(habitId);
+    }
+
+    public List<LogEntity> getLogsByHabitId(int habitId) {
+        return logDAO.getLogsByHabitId(habitId);
     }
 }

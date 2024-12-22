@@ -16,8 +16,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.habit_forge.R;
+import com.example.habit_forge.model.Objective;
 import com.example.habit_forge.utils.enumeration.NavigationEvent;
+import com.example.habit_forge.utils.enumeration.ObjectiveSign;
 import com.example.habit_forge.view.adapter.ListHabitAdapter;
+import com.example.habit_forge.view.viewmodel.HabitInfoViewModel;
 import com.example.habit_forge.view.viewmodel.MainPageViewModel;
 
 import java.util.ArrayList;
@@ -56,9 +59,8 @@ public class MainActivity extends AppCompatActivity {
         Button addHabitBtn = findViewById(R.id.add_habit_button);
         addHabitBtn.setOnClickListener(v -> viewModel.onNavigateToHabitCreationActivity());
 
-        //TODO: Test interaction
-        Button testInteractBtn = findViewById(R.id.test_interact_button);
-        testInteractBtn.setOnClickListener(v -> viewModel.onNavigateToHabitInteractionActivity(1));
+        Button habitsInfosBtn = findViewById(R.id.habits_infos_button);
+        habitsInfosBtn.setOnClickListener(v -> viewModel.onNavigateToHabitInfosActivity());
 
         viewModel.getNavigationEvent().observe(this, new Observer<NavigationEvent>() {
             @Override
@@ -80,9 +82,12 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("habitId", event.getId());
                         startActivity(intent);
                         break;
+                    case Infos:
+                        intent = new Intent(MainActivity.this, HabitsInfos.class);
+                        startActivity(intent);
+                        break;
                 }
             }
         });
-
     }
 }

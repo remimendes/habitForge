@@ -23,7 +23,6 @@ public class LogEntity {
     }
 
     private int habitId;
-    @Embedded
     private LocalDateTime dateTime;
     private int quantity;
 

@@ -14,6 +14,8 @@ import com.example.habit_forge.model.HabitEntity;
 import com.example.habit_forge.model.Objective;
 import com.example.habit_forge.utils.enumeration.ObjectiveSign;
 
+import java.time.LocalDateTime;
+
 public class HabitCreationEditViewModel extends AndroidViewModel {
     private HabitEntity currentHabitEntity;
     private HabitRepository habitRepository;
@@ -36,7 +38,7 @@ public class HabitCreationEditViewModel extends AndroidViewModel {
         try {
             objective = new Objective(Integer.parseInt(recurrence), ObjectiveSign.valueOf(sign));
             if (currentHabitEntity == null) {
-                addHabit(new HabitEntity(habitName, description, objective), context);
+                addHabit(new HabitEntity(habitName, description, objective, LocalDateTime.now()), context);
             }else {
                 currentHabitEntity.setName(habitName);
                 currentHabitEntity.setDescription(description);

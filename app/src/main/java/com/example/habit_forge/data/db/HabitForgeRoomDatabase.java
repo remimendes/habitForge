@@ -17,10 +17,11 @@ import com.example.habit_forge.data.dao.HabitDAO;
 import com.example.habit_forge.data.dao.LogDAO;
 import com.example.habit_forge.model.HabitEntity;
 import com.example.habit_forge.model.LogEntity;
+import com.example.habit_forge.utils.converter.DateTimeConverter;
 import com.example.habit_forge.utils.converter.ObjectiveConverter;
 
 @Database(entities = {HabitEntity.class, LogEntity.class}, version = 1)
-@TypeConverters({ObjectiveConverter.class})
+@TypeConverters({ObjectiveConverter.class, DateTimeConverter.class})
 public abstract class HabitForgeRoomDatabase extends androidx.room.RoomDatabase {
     public abstract HabitDAO habitDAO();
     public abstract LogDAO logDAO();

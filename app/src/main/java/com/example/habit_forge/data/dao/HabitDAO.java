@@ -28,4 +28,6 @@ public interface HabitDAO {
 
     @Query("SELECT name FROM habits_table WHERE id = :id")
     String getHabitName(int id);
+
+
 }

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Habit_Forge"
         tools:targetApi="31">
         <activity
+            android:name=".view.activity.RGPD"
+            android:exported="false" />
+        <activity
             android:name=".view.activity.HabitsInfos"
             android:exported="false" />
         <activity

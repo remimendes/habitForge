@@ -27,7 +27,13 @@
                 android:id="@+id/habits_infos_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="testInteract" />
+                android:text="habit Infos" />
+
+            <Button
+                android:id="@+id/RGPD_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RGPD" />
 
         </LinearLayout>
 

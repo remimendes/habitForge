@@ -26,6 +26,7 @@ import com.example.habit_forge.view.viewmodel.MainPageViewModel;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    MainPageViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        MainPageViewModel viewModel = new ViewModelProvider(this).get(MainPageViewModel.class);
+        viewModel = new ViewModelProvider(this).get(MainPageViewModel.class);
         RecyclerView recyclerView = findViewById(R.id.list_habits_recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         ListHabitAdapter adapter = new ListHabitAdapter(new ArrayList<>(), new ListHabitAdapter.OnButtonClickListener() {
@@ -61,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
         Button habitsInfosBtn = findViewById(R.id.habits_infos_button);
         habitsInfosBtn.setOnClickListener(v -> viewModel.onNavigateToHabitInfosActivity());
+
+        Button RGPDBtn = findViewById(R.id.RGPD_button);
+        RGPDBtn.setOnClickListener(v -> viewModel.onNaviagteToRGPDActivity());
 
         viewModel.getNavigationEvent().observe(this, new Observer<NavigationEvent>() {
             @Override
@@ -86,8 +89,18 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, HabitsInfos.class);
                         startActivity(intent);
                         break;
+                    case RGPD:
+                        intent = new Intent(MainActivity.this, RGPD.class);
+                        startActivity(intent);
+                        break;
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewModel.onResume();
     }
 }

@@ -2,6 +2,7 @@ package com.example.habit_forge.data.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -19,6 +20,9 @@ public interface HabitDAO {
 
     @Update
     void updateHabit(HabitEntity habit);
+
+    @Delete
+    void deleteHabit(HabitEntity habit);
 
     @Query("SELECT * FROM habits_table")
     LiveData<List<HabitEntity>> getAllHabits();

@@ -39,4 +39,8 @@ public class HabitRepository {
     public void updateHabit(HabitEntity habitEntity) {
         habitDAO.updateHabit(habitEntity);
     }
+
+    public void deleteHabit(HabitEntity habit) {
+        habitDAO.deleteHabit(habit);
+    }
 }

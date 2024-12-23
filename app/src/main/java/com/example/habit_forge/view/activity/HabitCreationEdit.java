@@ -3,6 +3,7 @@ package com.example.habit_forge.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,13 +44,14 @@ public class HabitCreationEdit extends AppCompatActivity {
         Spinner spinner = findViewById(R.id.objective_sign_spinner);
         EditText descriptionEdit = findViewById(R.id.description_edit);
         Button sendInfoButton = findViewById(R.id.sendInfoButton);
+        Button deleteButton = findViewById(R.id.delete_button);
         Intent intent = getIntent();
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_options, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        HabitViewModelFactory factory = new HabitViewModelFactory(getApplication(), intent.getIntExtra("habitId",-1));
+        HabitViewModelFactory factory = new HabitViewModelFactory(getApplication(), intent.getIntExtra("habitId", -1));
         HabitCreationEditViewModel viewModel = new ViewModelProvider(this, factory).get(HabitCreationEditViewModel.class);
 
         sendInfoButton.setText(viewModel.getButtonText());
@@ -63,5 +65,18 @@ public class HabitCreationEdit extends AppCompatActivity {
             viewModel.buttonPressed(nameEdit.getText().toString(), descriptionEdit.getText().toString(), objectiveNumberEdit.getText().toString(), (String) spinner.getSelectedItem(), getApplicationContext());
             ;
         });
+
+        deleteButton.setOnClickListener(v -> {
+            viewModel.deleteButtonPressed(getApplicationContext());
+            finish();
+        });
+
+        viewModel.getIsButtonVisible().observe(this, isVisible -> {
+            if (isVisible != null) {
+                deleteButton.setVisibility(isVisible ? View.VISIBLE : View.INVISIBLE);
+            }
+        });
+
     }
+
 }

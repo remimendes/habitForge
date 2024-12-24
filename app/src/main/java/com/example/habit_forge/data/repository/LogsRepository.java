@@ -39,4 +39,8 @@ public class LogsRepository {
     public int getQuantityByStartDate(int habitId,String startDate) {
         return logDAO.getQuantityByStartDate(habitId,startDate);
     }
+
+    public LiveData<Integer> getQuantityLiveDataByStartDate(int habitId, String startDate) {
+        return logDAO.getQuantityLiveDataByStartDate(habitId, startDate);
+    }
 }

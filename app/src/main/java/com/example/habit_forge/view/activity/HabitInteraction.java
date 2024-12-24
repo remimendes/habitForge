@@ -32,13 +32,20 @@ public class HabitInteraction extends AppCompatActivity {
         Button plusButton = findViewById(R.id.add_button);
         Button minusButton = findViewById(R.id.subtract_button);
         TextView habitName = findViewById(R.id.habit_name_textName);
+        TextView quantity = findViewById(R.id.quantity_textview);
         EditText recurrence = findViewById(R.id.recurrence_editTextNumberDecimal);
         Intent intent = getIntent();
 
         HabitInteractionViewModel viewModel = new HabitInteractionViewModel(getApplication(), intent.getIntExtra("habitId", -1));
 
         habitName.setText(viewModel.getTitle());
-
+        viewModel.getQuantity().observe(this, quantityValue -> {
+            if (quantityValue != null) {
+                quantity.setText(String.valueOf(quantityValue));
+            } else {
+                quantity.setText("0");
+            }
+        });
         plusButton.setOnClickListener(v -> viewModel.plusButtonPressed(recurrence.getText().toString()));
         minusButton.setOnClickListener(v -> viewModel.minusButtonPressed(recurrence.getText().toString()));
 

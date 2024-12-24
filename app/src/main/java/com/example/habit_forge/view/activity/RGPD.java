@@ -2,6 +2,7 @@ package com.example.habit_forge.view.activity;
 
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,6 @@ public class RGPD extends AppCompatActivity {
 
         RGPDViewModel viewModel = new ViewModelProvider(this).get(RGPDViewModel.class);
         findViewById(R.id.send_rgpd_button).setOnClickListener(v -> viewModel.buttonPressed(((EditText) findViewById(R.id.rgpd_days_editTextNumberDecimal)).getText().toString(), this));
-
+        viewModel.getDaysBeforeDeletionTextLiveData().observe(this, text -> ((TextView) findViewById(R.id.retention_days_textView)).setText(text));
     }
 }

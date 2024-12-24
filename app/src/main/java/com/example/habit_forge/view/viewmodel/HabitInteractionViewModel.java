@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
 import com.example.habit_forge.data.repository.HabitRepository;
 import com.example.habit_forge.data.repository.LogsRepository;
@@ -60,6 +61,10 @@ public class HabitInteractionViewModel extends AndroidViewModel {
             Toast.makeText(getApplication(), "An unexpected error occurred.", Toast.LENGTH_SHORT).show();
             e.printStackTrace(); // Journalisation
         }
+    }
+
+    public LiveData<Integer> getQuantity() {
+        return logsRepository.getQuantityLiveDataByStartDate(habitId, String.valueOf(LocalDateTime.now().toLocalDate().atStartOfDay()));
     }
 
     // Méthode pour valider et convertir la quantité

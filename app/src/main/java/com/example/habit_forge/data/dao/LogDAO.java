@@ -24,6 +24,9 @@ public interface LogDAO {
     @Query("SELECT habitId, SUM(quantity) AS totalQuantity FROM logs_table WHERE dateTime >= :startDate GROUP BY habitId ORDER BY habitId ASC")
     LiveData<List<IdQuantity>> getQuantitiesByStartDate(String startDate);
 
-    @Query("SELECT COALESCE(SUM(quantity), 0) AS totalQuantity\n FROM logs_table WHERE dateTime >= :startDate AND habitId = :habitId")
+    @Query("SELECT COALESCE(SUM(quantity), 0) AS totalQuantity FROM logs_table WHERE dateTime >= :startDate AND habitId = :habitId")
     int getQuantityByStartDate(int habitId, String startDate);
+
+    @Query("SELECT COALESCE(SUM(quantity), 0) AS totalQuantity FROM logs_table WHERE dateTime >= :startDate AND habitId = :habitId")
+    LiveData<Integer> getQuantityLiveDataByStartDate(int habitId, String startDate);
 }

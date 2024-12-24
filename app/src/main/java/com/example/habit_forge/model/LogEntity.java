@@ -3,6 +3,7 @@ package com.example.habit_forge.model;
 import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDateTime;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
         parentColumns = "id",
         childColumns = "habitId",
         onDelete = ForeignKey.CASCADE
-))
+),indices = {@Index(value = "habitId", unique = false)})
 public class LogEntity {
 
     @PrimaryKey(autoGenerate = true)

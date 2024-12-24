@@ -1,6 +1,7 @@
 package com.example.habit_forge.data.dao;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -24,7 +25,7 @@ public interface HabitDAO {
     @Delete
     void deleteHabit(HabitEntity habit);
 
-    @Query("SELECT * FROM habits_table")
+    @Query("SELECT * FROM habits_table ORDER BY id ASC")
     LiveData<List<HabitEntity>> getAllHabits();
 
     @Query("SELECT * FROM habits_table WHERE id = :id")

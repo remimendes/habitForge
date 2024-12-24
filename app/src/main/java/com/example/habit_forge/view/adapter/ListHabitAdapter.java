@@ -10,13 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.habit_forge.R;
-import com.example.habit_forge.model.HabitEntity;
+import com.example.habit_forge.model.HabitItem;
 
 import java.util.List;
 
 public class ListHabitAdapter extends RecyclerView.Adapter<ListHabitAdapter.ViewHolder> {
 
-    private final List<HabitEntity> habitList;
+    private final List<HabitItem> habitList;
     private final OnButtonClickListener buttonClickListener;
     private final OnItemClickListener itemClickListener;
 
@@ -28,7 +28,7 @@ public class ListHabitAdapter extends RecyclerView.Adapter<ListHabitAdapter.View
         void onItemClick(int habitId);
     }
 
-    public ListHabitAdapter(List<HabitEntity> itemList, OnButtonClickListener listener, OnItemClickListener itemClickListener) {
+    public ListHabitAdapter(List<HabitItem> itemList, OnButtonClickListener listener, OnItemClickListener itemClickListener) {
         this.habitList = itemList;
         this.buttonClickListener = listener;
         this.itemClickListener = itemClickListener;
@@ -43,8 +43,9 @@ public class ListHabitAdapter extends RecyclerView.Adapter<ListHabitAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        HabitEntity currentItem = habitList.get(position);
+        HabitItem currentItem = habitList.get(position);
         holder.nameTextView.setText(currentItem.getName());
+        holder.quantityCount.setText(String.valueOf(currentItem.getQuantity()));
 
         holder.button.setOnClickListener(v -> {
             if (buttonClickListener != null) {
@@ -64,19 +65,20 @@ public class ListHabitAdapter extends RecyclerView.Adapter<ListHabitAdapter.View
         return habitList.size();
     }
 
-    public void updateHabits(List<HabitEntity> newHabitList) {
+    public void updateHabits(List<HabitItem> newHabitList) {
         this.habitList.clear();
         this.habitList.addAll(newHabitList);
         notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView nameTextView;
+        TextView nameTextView, quantityCount;
         Button button;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nameTextView = itemView.findViewById(R.id.habit_item_textView);
+            quantityCount = itemView.findViewById(R.id.quantity_textview);
             button = itemView.findViewById(R.id.button);
         }
     }

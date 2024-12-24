@@ -2,7 +2,6 @@ package com.example.habit_forge.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -16,11 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.habit_forge.R;
-import com.example.habit_forge.model.Objective;
 import com.example.habit_forge.utils.enumeration.NavigationEvent;
-import com.example.habit_forge.utils.enumeration.ObjectiveSign;
 import com.example.habit_forge.view.adapter.ListHabitAdapter;
-import com.example.habit_forge.view.viewmodel.HabitInfoViewModel;
 import com.example.habit_forge.view.viewmodel.MainPageViewModel;
 
 import java.util.ArrayList;
@@ -54,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
         });
         recyclerView.setAdapter(adapter);
 
-        viewModel.getAllHabits().observe(this, adapter::updateHabits);
+        viewModel.getHabitItemsLiveData().observe(this, adapter::updateHabits);
+
+        viewModel.getAllQuantities().observe(this, idQuantities -> {
+            viewModel.refreshData();
+        });
 
         Button addHabitBtn = findViewById(R.id.add_habit_button);
         addHabitBtn.setOnClickListener(v -> viewModel.onNavigateToHabitCreationActivity());

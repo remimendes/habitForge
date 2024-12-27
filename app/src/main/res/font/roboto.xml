@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Roboto Regular -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/roboto_regular" />
+
+    <!-- Roboto Bold -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        android:font="@font/roboto_bold" />
+
+    <!-- Roboto Italic -->
+    <font
+        android:fontStyle="italic"
+        android:fontWeight="400"
+        android:font="@font/roboto_italic" />
+
+</font-family>

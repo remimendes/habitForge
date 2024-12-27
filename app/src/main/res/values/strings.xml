@@ -1,5 +1,17 @@
 <resources>
     <string name="app_name">Habit_Forge</string>
+    <string name="nameEditCreation">name</string>
+    <string name="objectiveEditCreation">objective</string>
+    <string name="descriptionEditCreation">description</string>
+    <string name="minusSign">-</string>
+    <string name="plusSign">+</string>
+    <string name="addHabitMainPageButton">add habit</string>
+    <string name="habitInfosMainPageButton">habit Infos</string>
+    <string name="rgpdMainPageButton">RGPD</string>
+    <string name="titleRgpdActivity">Privacy Policy and Data Retention</string>
+    <string name="rgpdActivityText">Habit Tracker values your privacy and complies with the General Data Protection Regulation (GDPR). The app stores habit details, including the name, creation date, description, and goal, as well as activity logs that record actions (e.g., adding quantities) and their timestamps. To manage your data, you can set a custom retention period, after which logs are automatically deleted. Your GDPR rights include access to all stored data, the ability to modify or delete your information, and the right to withdraw consent at any time. We ensure your data is securely handled and only used to enhance your experience.</string>
+    <string name="rgpdSendButton">send</string>
+    <string name="rgpdCancelButton">cancel</string>
     <string-array name="spinner_options">
         <item>EQUAL</item>
         <item>LESS</item>

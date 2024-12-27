@@ -39,6 +39,9 @@ public class RGPDViewModel extends AndroidViewModel {
     }
 
     public String getDaysBeforeDeletionText() {
+        if (RGPDRepository.getDaysBeforeDeletion() == -1) {
+            return "No days before deletion set";
+        }
         return String.format(Locale.ROOT, "days before deletetion is set to %d days", RGPDRepository.getDaysBeforeDeletion());
     }
 

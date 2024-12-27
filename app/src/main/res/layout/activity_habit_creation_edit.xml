@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,118 +8,108 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.HabitCreationEdit">
 
+    <!-- Title -->
     <TextView
         android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="24sp"
+        android:text="textView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.1" />
 
+    <!-- Name Label -->
     <TextView
         android:id="@+id/name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        android:text="@string/nameEditCreation"
+        app:layout_constraintTop_toBottomOf="@id/title_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintHorizontal_bias="0.05" />
 
+    <!-- Name Input -->
     <EditText
         android:id="@+id/name_edit"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="text"
-        android:text="Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        android:background="@drawable/edit_text_bg"
+        app:layout_constraintTop_toBottomOf="@id/name_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.215" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5" />
 
+    <!-- Objective Label -->
     <TextView
         android:id="@+id/objective_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="objective"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        android:text="@string/objectiveEditCreation"
+        app:layout_constraintTop_toBottomOf="@id/name_edit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.292" />
+        app:layout_constraintHorizontal_bias="0.05" />
 
+    <!-- Objective Input -->
     <EditText
         android:id="@+id/objective_number_edit"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        android:background="@drawable/edit_text_bg"
+        app:layout_constraintTop_toBottomOf="@id/objective_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344" />
+        app:layout_constraintEnd_toStartOf="@id/objective_sign_spinner"
+        app:layout_constraintHorizontal_bias="0.5" />
 
+    <!-- Objective Sign Spinner -->
     <Spinner
         android:id="@+id/objective_sign_spinner"
-        android:layout_width="132dp"
-        android:layout_height="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_text_bg"
+        app:layout_constraintTop_toTopOf="@id/objective_number_edit"
+        app:layout_constraintStart_toEndOf="@id/objective_number_edit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.906"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.356" />
+        app:layout_constraintHorizontal_bias="0.5" />
 
+    <!-- Description Label -->
     <TextView
         android:id="@+id/description_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        android:text="@string/descriptionEditCreation"
+        app:layout_constraintTop_toBottomOf="@id/objective_number_edit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448" />
+        app:layout_constraintHorizontal_bias="0.05" />
 
+    <!-- Description Input -->
     <EditText
         android:id="@+id/description_edit"
-        android:layout_width="359dp"
-        android:layout_height="246dp"
-        android:ems="10"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:inputType="text"
-        android:text="description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
+        android:background="@drawable/edit_text_bg"
+        app:layout_constraintTop_toBottomOf="@id/description_tv"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.727" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/sendInfoButton"
+        app:layout_constraintVertical_bias="0.7" />
 
+    <!-- Send Info Button -->
     <Button
         android:id="@+id/sendInfoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintHorizontal_bias="0.3" />
 
+    <!-- Delete Button -->
     <Button
         android:id="@+id/delete_button"
         android:layout_width="wrap_content"
@@ -127,9 +118,6 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.783"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.925" />
+        app:layout_constraintHorizontal_bias="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

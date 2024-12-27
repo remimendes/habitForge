@@ -7,63 +7,75 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.RGPD">
 
+    <!-- Titre RGPD -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Privacy Policy and Data Retention"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="22sp"
+        android:text="@string/titleRgpdActivity"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
 
+    <!-- Texte RGPD -->
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Habit Tracker values your privacy and complies with the General Data Protection Regulation (GDPR). The app stores habit details, including the name, creation date, description, and goal, as well as activity logs that record actions (e.g., adding quantities) and their timestamps. To manage your data, you can set a custom retention period, after which logs are automatically deleted. Your GDPR rights include access to all stored data, the ability to modify or delete your information, and the right to withdraw consent at any time. We ensure your data is securely handled and only used to enhance your experience."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:text="@string/rgpdActivityText"
+        app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp" />
 
+    <!-- Champ pour entrer le nombre de jours -->
     <EditText
         android:id="@+id/rgpd_days_editTextNumberDecimal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:background="@drawable/edit_text_bg"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.635" />
-
-    <Button
-        android:id="@+id/send_rgpd_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="send"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762" />
+        android:layout_marginTop="24dp" />
 
+    <!-- Texte indiquant la durée de rétention -->
     <TextView
         android:id="@+id/retention_days_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintTop_toBottomOf="@id/rgpd_days_editTextNumberDecimal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.546" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <!-- Bouton d'envoi -->
+    <Button
+        android:id="@+id/send_rgpd_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rgpdSendButton"
+        app:layout_constraintTop_toBottomOf="@id/retention_days_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintHorizontal_bias="0.3"/>
+
+    <Button
+        android:id="@+id/cancel_rgpd_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rgpdCancelButton"
+        app:layout_constraintTop_toBottomOf="@id/retention_days_textView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintHorizontal_bias="0.7"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

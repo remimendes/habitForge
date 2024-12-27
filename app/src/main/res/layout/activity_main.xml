@@ -7,41 +7,47 @@
     android:layout_height="match_parent"
     tools:context=".view.activity.MainActivity">
 
+    <!-- Conteneur des boutons -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:id="@+id/button_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
 
-        <LinearLayout
+        <Button
+            android:id="@+id/add_habit_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginEnd="8dp"
+            android:text="@string/addHabitMainPageButton" />
 
-            <Button
-                android:id="@+id/add_habit_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="add habit" />
+        <Button
+            android:id="@+id/habits_infos_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/habitInfosMainPageButton" />
 
-            <Button
-                android:id="@+id/habits_infos_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="habit Infos" />
-
-            <Button
-                android:id="@+id/RGPD_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RGPD" />
-
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/list_habits_recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
+        <Button
+            android:id="@+id/RGPD_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rgpdMainPageButton" />
     </LinearLayout>
 
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_habits_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/button_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="16dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -64,6 +64,7 @@ public class HabitCreationEdit extends AppCompatActivity {
         sendInfoButton.setOnClickListener(v -> {
             viewModel.buttonPressed(nameEdit.getText().toString(), descriptionEdit.getText().toString(), objectiveNumberEdit.getText().toString(), (String) spinner.getSelectedItem(), getApplicationContext());
             ;
+            finish();
         });
 
         deleteButton.setOnClickListener(v -> {
